@@ -9,7 +9,8 @@ The system involves both **front-end** and **back-end** components. This documen
 
 ## Front-End
 
-### Screen 1: Bus Arrival and Occupancy Table (Image 1)
+### Screen 1: Bus Arrival and Occupancy Table ![image](https://github.com/user-attachments/assets/696a11c6-e64b-4f29-8883-2aaf9bd9b26b)
+
 - **Purpose**: This screen displays real-time bus information for the next arriving buses, their routes, estimated arrival time, and current occupancy status (e.g., High, Medium, Low).
 - **Elements**:
   - **Current Time**: Displays the current time in a prominent position.
@@ -26,7 +27,8 @@ The system involves both **front-end** and **back-end** components. This documen
   - The data is fetched from the back-end server via **AJAX requests** or using **WebSocket** connections for real-time updates.
   - **Timer/Interval**: A JavaScript timer is used to automatically switch between screens every 10 seconds.
 
-### Screen 2: Real-Time Bus Location Map (Image 2)
+### Screen 2: Real-Time Bus Location Map ![image](https://github.com/user-attachments/assets/a1d83087-7772-489f-afca-c9537c717abd)
+
 - **Purpose**: This screen shows the city-wide route map with real-time bus locations plotted for the **Mi Macro Periférico** line, helping users see how close the buses are to the station.
 - **Elements**:
   - **Interactive Map**: Using libraries such as **Leaflet.js** or **Google Maps API**, this screen shows an interactive map of the bus route with markers representing the current location of buses.
