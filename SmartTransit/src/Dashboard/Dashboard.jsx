@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react";
-import BusRouteMapOPEN from "./BusRouteMapOPEN.jsx";
+import BusRouteMapOPEN from "./Components/BusRouteMapOPEN.jsx";
+import BusTable from "./Components/BusTable.jsx";
 
 function Dashboard() {
     // Estado para controlar si se muestra el mapa o una vista en blanco
-    const [showMap, setShowMap] = useState(true);
+    const [showMap, setShowMap] = useState(false);
 
     // useEffect para alternar entre el mapa y la vista en blanco cada 10 segundos
-    useEffect(() => {
+    /*useEffect(() => {
         const interval = setInterval(() => {
             setShowMap((prevShowMap) => !prevShowMap);
-        }, 10000);  // Cambia cada 10 segundos
+        }, 5000);  // Cambia cada 10 segundos
         // Limpiar el intervalo cuando el componente se desmonte
         return () => clearInterval(interval);
-    }, []);
+    }, []);*/
 
 
     return (
@@ -29,8 +30,10 @@ function Dashboard() {
                 </div>
             </div>):(<div>
 
-                {                // Diseño de tabla
-                }
+                <div className={'pt-[5%] h-screen w-screen'}>
+
+                    <BusTable />
+                </div>
 
             </div>)}
 
