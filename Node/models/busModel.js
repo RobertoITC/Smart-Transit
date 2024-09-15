@@ -1,23 +1,19 @@
-// busModel.js
 const db = require('../config/db.js');
 const res = require("express/lib/response");
-const {response} = require("express");// Import the pool connection from the db.js file
+const {response} = require("express");
 
-// Function to get all buses
 const getAllBuses = async () => {
     const query = 'SELECT * FROM buses';
     const result = await db.query(query);
     return result.rows;
 };
 
-// Function to get a single bus by ID
 const getBusById = async (id) => {
     const query = 'SELECT * FROM buses WHERE id = $1';
     const result = await db.query(query, [id]);
     return result.rows[0];
 };
 
-// Function to add a new bus
 const addBus = async (bus) => {
     const { id, is_full, ip_address, distance_from_base, occupancy_percentage } = bus;
     const query = `
@@ -28,7 +24,6 @@ const addBus = async (bus) => {
     return result.rows[0];
 };
 
-// Function to update a bus
 const updateBus = async (id, bus) => {
     const { is_full, ip_address, distance_from_base, occupancy_percentage } = bus;
     const query = `
@@ -40,7 +35,6 @@ const updateBus = async (id, bus) => {
     return result.rows[0];
 };
 
-// Function to delete a bus
 const deleteBus = async (id) => {
     const query = 'DELETE FROM buses WHERE id = $1 RETURNING *';
     const result = await db.query(query, [id]);

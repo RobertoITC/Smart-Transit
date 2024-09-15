@@ -1,7 +1,5 @@
-// busController.js
 const busModel = require('../models/busModel');
 
-// Controller to get all buses
 const getAllBuses = async (req, res) => {
     try {
         const buses = await busModel.getAllBuses();
@@ -11,7 +9,6 @@ const getAllBuses = async (req, res) => {
     }
 };
 
-// Controller to get a bus by ID
 const getBusById = async (req, res) => {
     const { id } = req.params;
     try {
@@ -26,7 +23,6 @@ const getBusById = async (req, res) => {
     }
 };
 
-// Controller to add a new bus
 const addBus = async (req, res) => {
     const newBus = req.body;
     try {
@@ -37,7 +33,6 @@ const addBus = async (req, res) => {
     }
 };
 
-// Controller to update a bus
 const updateBus = async (req, res) => {
     const { id } = req.params;
     const busData = req.body;
@@ -53,7 +48,6 @@ const updateBus = async (req, res) => {
     }
 };
 
-// Controller to delete a bus
 const deleteBus = async (req, res) => {
     const { id } = req.params;
     try {

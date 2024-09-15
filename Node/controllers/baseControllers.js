@@ -1,7 +1,5 @@
-// baseController.js
 const baseModel = require('../models/baseModel');
 
-// Controller to get all bases
 const getAllBases = async (req, res) => {
     try {
         const bases = await baseModel.getAllBases();
@@ -11,7 +9,6 @@ const getAllBases = async (req, res) => {
     }
 };
 
-// Controller to get a base by ID
 const getBaseById = async (req, res) => {
     const { id } = req.params;
     try {
@@ -26,7 +23,6 @@ const getBaseById = async (req, res) => {
     }
 };
 
-// Controller to add a new base
 const addBase = async (req, res) => {
     const newBase = req.body;
     try {
@@ -37,7 +33,6 @@ const addBase = async (req, res) => {
     }
 };
 
-// Controller to update a base
 const updateBase = async (req, res) => {
     const { id } = req.params;
     const baseData = req.body;
@@ -53,7 +48,6 @@ const updateBase = async (req, res) => {
     }
 };
 
-// Controller to delete a base
 const deleteBase = async (req, res) => {
     const { id } = req.params;
     try {

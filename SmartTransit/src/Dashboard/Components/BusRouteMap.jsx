@@ -11,7 +11,6 @@ const center = {
     lng: -103.36561457858814
 };
 
-// Example coordinates for the 'C17' route
 const C17RouteCoordinates = [
     { lat: 20.668390439744453, lng: -103.36561457858814 },
     { lat: 20.665, lng: -103.360 },
@@ -20,7 +19,6 @@ const C17RouteCoordinates = [
     { lat: 20.650, lng: -103.345 },
 ];
 
-// Example coordinates for another route 'B12'
 const B12RouteCoordinates = [
     { lat: 20.668390439744453, lng: -103.36561457858814 },
     { lat: 20.663, lng: -103.370 },
@@ -37,7 +35,6 @@ function BusRouteMap() {
                 center={center}
                 zoom={14}
             >
-                {/* C17 Route */}
                 <Polyline
                     path={C17RouteCoordinates}
                     options={{
@@ -47,7 +44,6 @@ function BusRouteMap() {
                     }}
                 />
 
-                {/* B12 Route */}
                 <Polyline
                     path={B12RouteCoordinates}
                     options={{

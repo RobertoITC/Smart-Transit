@@ -2,24 +2,23 @@ import React, { useEffect } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
+
+
 function BusRouteMap() {
     useEffect(() => {
-        let mapInstance; // Declare map instance
+        let mapInstance;
 
-        // Check if the map is already initialized
         if (!mapInstance) {
             mapInstance = L.map('map').setView([20.668390439744453, -103.36561457858814], 14);
 
-            // Add the OpenStreetMap tiles
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; OpenStreetMap contributors'
             }).addTo(mapInstance);
 
-            // Define the coordinates for the route 'C17'
             const MacroPeriferico = [
-                [20.713260178951565, -103.30095248895896],  // Start point
-                [20.718676502079834, -103.31090508386224],  // Intermediate point
-                [20.72156862459968, -103.32628501219462],  // Intermediate point
+                [20.713260178951565, -103.30095248895896],
+                [20.718676502079834, -103.31090508386224],
+                [20.72156862459968, -103.32628501219462],
                 [20.723573898289647, -103.33070741779163],
                 [20.725820222473065, -103.33754563180524],
                 [20.72854077921512, -103.3445061753238],
@@ -59,26 +58,31 @@ function BusRouteMap() {
                 [20.582751335604044, -103.33627064228854],
                 [20.587869228218487, -103.32693077200344],
 
-                [20.591342632251997, -103.32139165763371],  // End point
+                [20.591342632251997, -103.32139165763371],
             ];
 
-            // Draw the polyline on the map
             const polyline = L.polyline(MacroPeriferico, { color: 'purple' }).addTo(mapInstance);
 
-            // Adjust the map view to fit the route
             mapInstance.fitBounds(polyline.getBounds());
 
             MacroPeriferico.forEach((coord) => {
                 L.circleMarker(coord, {
-                    radius: 4, // Size of the circle
-                    color: 'purple', // Border color
-                    fillColor: 'white', // Fill color
-                    fillOpacity: 0.8, // Opacity of the fill
+                    radius: 4,
+                    color: 'purple',
+                    fillColor: 'white',
+                    fillOpacity: 0.8,
                 }).addTo(mapInstance);
             });
-        }
 
-        // Clean up the map when the component unmounts
+        }
+        const zoomToLocation = (map) => {
+            const coords = [20.612973674769336, -103.4236138453038];
+            const zoomLevel = 15;
+            map.setView(coords, zoomLevel, { animate: true });
+
+        };
+
+
         return () => {
             if (mapInstance) {
                 mapInstance.remove();
@@ -89,8 +93,8 @@ function BusRouteMap() {
     return <div id="map" style={{
         height: '600px',
         width: '85%',
-        borderRadius: '15px',  // Rounds the corners
-        boxShadow: '0 8px 16px rgba(0, 0, 0, 0.1)'  // Adds shadow for more presentable look
+        borderRadius: '15px',
+        boxShadow: '0 8px 16px rgba(0, 0, 0, 0.1)'
     }}></div>;
 }
 

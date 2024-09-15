@@ -23,9 +23,7 @@ function MyMapComponent() {
                 center={center}
                 zoom={14}
             >
-                {/* You can add markers like this */}
                 <Marker position={center} />
-                {/* Other map components here */}
             </GoogleMap>
         </LoadScript>
     );
