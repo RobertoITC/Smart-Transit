@@ -46,3 +46,51 @@ The system involves both **front-end** and **back-end** components. This documen
 - **Timers (setInterval/setTimeout)**: Control the 10-second screen rotations and automatic data refreshing.
 
 ---
+## Back-End
+
+The back-end is responsible for providing real-time data on bus locations, arrival times, and seat availability. It manages data storage and provides APIs to the front-end.
+
+### Responsibilities:
+1. **Bus Location API**:
+   - Provides GPS data for buses in real-time.
+   - The data is collected from bus tracking devices and pushed to the server at regular intervals (e.g., every 30 seconds).
+   - API Endpoint: `GET /api/bus-locations`
+
+2. **Bus Arrival and Occupancy API**:
+   - Provides estimated arrival times and occupancy levels based on data from bus sensors.
+   - API Endpoint: `GET /api/bus-status`
+
+3. **Data Management**:
+   - The back-end server stores historical and real-time bus data, including location, occupancy, and route information.
+   - It uses a **database** (e.g., MongoDB or PostgreSQL) to keep track of real-time bus data and deliver it to the front-end.
+
+### Technologies Used:
+- **Node.js**: For building the server-side logic, managing APIs, and handling real-time data.
+- **Express.js**: Web framework used to define API routes for fetching bus location and occupancy data.
+- **WebSockets**: Provides a real-time connection between the back-end and front-end for continuous updates without the need for constant polling.
+- **Database (MongoDB/PostgreSQL)**: Stores bus routes, schedules, and real-time occupancy data.
+
+---
+
+## Interaction between Front-End and Back-End
+1. **Data Flow**:
+   - The front-end periodically requests real-time bus information from the back-end using **AJAX** or **WebSockets**.
+   - The back-end sends updated bus locations and occupancy data based on the latest GPS and sensor readings.
+   
+2. **Screen Rotation**:
+   - The front-end uses a JavaScript interval (`setInterval`) to rotate between the two screens (Table View and Map View) every 10 seconds.
+   - Both screens are independently updated based on real-time data fetched from the back-end.
+
+---
+
+## Deployment and Scaling
+- **Cloud Hosting**: The application can be hosted on cloud platforms such as **AWS** or **Heroku** to ensure scalability and reliability.
+- **Real-Time Data Handling**: Implementing **WebSockets** or **server-sent events (SSE)** ensures low-latency data delivery to the front-end for a smooth real-time experience.
+
+---
+
+## Future Enhancements
+- **User Interaction**: Adding touch-screen functionality for users to interact with the map and select specific buses or routes.
+- **Analytics**: Integrating analytics to track bus performance, passenger flow, and optimize schedules based on historical data.
+
+---
