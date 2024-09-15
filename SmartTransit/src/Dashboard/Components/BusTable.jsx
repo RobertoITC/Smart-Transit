@@ -46,7 +46,7 @@ function BusTable() {
                 } else {
                     busListContainer.scrollTop += 1;
                 }
-            }, 100);
+            }, 30);
         }
 
         return () => {
@@ -64,6 +64,8 @@ function BusTable() {
             hour12: false,
         }).format(date);
     };
+    const sortedBuses = buses.sort((a, b) => a.distance_from_base - b.distance_from_base);
+
     return (
         <div className="flex flex-col h-full overflow-hidden">
             <div className="p-6 ml-14 mb-7 bg-gray-100 w-11/12  rounded-lg shadow-md">
@@ -80,12 +82,12 @@ function BusTable() {
             <div className="flex flex-row h-[570px] justify-center pt-8 w-[80%]]">
                 {/* Buses */}
                 <div className="flex flex-col space-y-4 overflow-y-scroll h-[80%] w-full ml-14" ref={busListRef}>
-                    {buses.map((bus, idx) => (
+                    {sortedBuses.map((bus, idx) => (
                         <div key={idx} className="bg-white p-4 rounded-lg shadow-md w-[100%]">
                             <h3 className="text-xl font-bold text-gray-700">Bus {bus.id}</h3>
                             {//<p className="text-gray-600">IP Address: {bus.ip_address}</p>}
                             }
-                            <p className="text-gray-600">Distancia de la base: {bus.distance_from_base} meters</p>
+                            <p className="text-gray-600">Distancia de la base: {bus.distance_from_base} m</p>
                             <p className="text-gray-600">Ocupación: {bus.occupancy_percentage}%</p>
                             <p className={`text-lg ${bus.is_full ? 'text-red-600' : 'text-green-600'}`}>
                                 {bus.is_full ? 'Bus is Full' : 'Bus has Space'}
