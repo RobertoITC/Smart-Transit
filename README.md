@@ -42,7 +42,6 @@ The system involves both **front-end** and **back-end** components. This documen
 ### Technologies Used:
 - **HTML/CSS/JavaScript**: Core technologies for building and styling the front-end user interface.
 - **Leaflet.js / Google Maps API**: Used to create the interactive map and display real-time bus locations.
-- **AJAX/WebSockets**: For communicating with the back-end server to get real-time data for bus locations and table updates.
 - **Timers (setInterval/setTimeout)**: Control the 10-second screen rotations and automatic data refreshing.
 
 ---
