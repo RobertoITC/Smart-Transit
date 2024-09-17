@@ -46,7 +46,7 @@ function BusTable() {
                 } else {
                     busListContainer.scrollTop += 1;
                 }
-            }, 30);
+            }, 40);
         }
 
         return () => {
